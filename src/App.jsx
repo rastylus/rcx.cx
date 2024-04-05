@@ -1,26 +1,24 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./App.css";
+import Pages from "./components/Pages";
+import Home from "./pages/Home";
+import Test from "./components/Test";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
     <>
-      <h1 className="text-3xl font-bold underline">RCX</h1>
-      <div className="card text-sky-500 hover:text-sky-600 bg-slate-200 ">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <br></br>
-        <a href="https://open.spotify.com/track/6cGmOGCCRFPCLKvTe9PsGE?si=020afd3e2c174ae9" target="_blank" rel="noopener noreferrer">shredded, let us</a> 
-  <br />
-  <a href="https://open.spotify.com/track/0AnQTHuNEOIma5UmnciuuD?si=a2b8d33d4e4340be" target="_blank" rel="noopener noreferrer">something left</a> 
-      </div>
-
+      <BrowserRouter>
+        <Routes>
+          <Route path="" element={<Home />} />
+          <Route path="/pages" element={<Pages />} />
+          <Route path="/test" element={<Test />} />
+        </Routes>
+      </BrowserRouter>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
