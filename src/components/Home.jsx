@@ -6,15 +6,15 @@ function Home() {
     const [count, setCount] = useState(0);
     return (
       <div>
-      <p>RCX</p>
+      <h1 style={{ color: 'blue', lineHeight : 5, padding: 5 }}>RCX</h1>
         {/* <h1 className="text-3xl font-bold underline">RCX</h1> */}
-        <div className="card text-sky-500 hover:text-sky-600 bg-slate-200 ">
+        <div className="card text-sky-500 hover:text-sky-300 bg-slate-600" >
           <button onClick={() => setCount((count) => count + 1)}>
             count is {count}
           </button>
 
           <br></br>
-          <a
+          <a className =""
             href="https://open.spotify.com/track/6cGmOGCCRFPCLKvTe9PsGE?si=020afd3e2c174ae9"
             target="_blank"
             rel="noopener noreferrer"
@@ -29,6 +29,7 @@ function Home() {
           >
             something left
           </a>
+          
         </div>
       </div>
     );
