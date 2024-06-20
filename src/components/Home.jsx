@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState } from 'react'
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 
@@ -6,6 +7,12 @@ function Home() {
     const [count, setCount] = useState(0);
     return (
       <div>
+          <Link to="/dice">dice</Link>
+          <br />
+          <Link to="/pages">pages</Link>          
+          <br />
+          <Link to="/">home</Link>
+
       <h1 style={{ color: 'blue', lineHeight : 5, padding: 5 }}>RCX</h1>
         {/* <h1 className="text-3xl font-bold underline">RCX</h1> */}
         <div className="card text-sky-500 hover:text-sky-300 bg-slate-600" >

@@ -1,11 +1,11 @@
+import React from "react";
 import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
-import Pages from "./components/Pages";
-// import Home from "./pages/Home";
 import Home from "./components/Home";
 import Test from "./components/Test";
 import Dice from "./components/Dice";
+import Pages from "./components/Pages";
 
 
 function App() {

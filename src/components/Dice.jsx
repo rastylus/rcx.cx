@@ -1,3 +1,4 @@
+import React from 'react'
 import { useState } from 'react'
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 
@@ -123,7 +124,8 @@ console.log(count);
 let phonemeArray = [];
 
 for (let i = 0; i < roll; i++) { 
-    phonemeArray.push(phoKey[randomNumberInRange(22, 43)]);
+    let test = randomNumberInRange(22, 43);
+    phonemeArray.push(phoKey[randomNumberInRange(22, 43)] + test);
     // newArray.push(setPho(phokey[i]));
 
   } 
@@ -133,7 +135,13 @@ for (let i = 0; i < roll; i++) {
 
   return (
     <>
-      <h1>Rhyme Dice</h1>
+      {/* <h5>Rhyme Dice</h5> */}
+      <Link to="/dice">dice</Link>
+      <br />
+      <Link to="/pages">pages</Link>
+      <br />
+      <p>roll for syllables, pick amount</p>
+      <Link to="/">home</Link>
       <div className="card">
         {/* <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
@@ -141,39 +149,42 @@ for (let i = 0; i < roll; i++) {
         <button onClick={() => setCount(randomNumberInRange(0,42))}>
           phoneme is {phonemes[count]}
         </button>        */}
-      <label for="rhymes">Number of rhymes (1-10):  </label>
-    <input type="number" id="rhymes" name="rhymes" min="1" max="10" onChange={(e) => onChange(e)}/>
 
-    {/* <input value={num} type="text" onChange={onChange}></input>
-    <p>{num}</p> */}
+        <label for="rhymes">Number of syllables ({roll}): </label>
+        {/* <input type="range" min="1" max="10" onChange={(e) => onChange(e)}/> */}
+        <input type="range" min="1" max="10" onInput={onChange} />
+        <br />
+        <br />
+        {/* <form>
+  <input type="range" name="amountRange" min="0" max="20" value="0" oninput="this.form.amountInput.value=this.value" />
+  <input type="number" name="amountInput" min="0" max="20" value="0" oninput="this.form.amountRange.value=this.value" />
+    </form> */}
 
-      <p>
-        <button onClick={handleClick}> roll
-        </button>  
-      </p>    
-
-
+        <p>
+          <button onClick={handleClick}> roll</button>
+        </p>
+        <br />
+        <br />
 
         {/* <p>{phonemes[pho1]} - {phonemes[pho2]} - {phonemes[pho3]}</p> */}
         {/* <p>{phoKey[pho1]} - {phoKey[pho2]} - {phoKey[pho3]}</p> */}
-        
+
         {/* <p>{phonemes[pho2]}</p>
         <p>{phonemes[pho3]}</p> */}
         {/* <p>{phonemeArray}</p> */}
         {phonemeArray.map((p) => (
-        <>
-            {p} __________
-            {/* <br /> */}
-        </>
-    ))}
-        
-
+          <>
+            {p}
+            <br />
+            <br />
+          </>
+        ))}
       </div>
       {/* <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p> */}
     </>
-  )
+  );
 }
 
 export default Dice

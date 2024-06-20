@@ -5,6 +5,12 @@
   text-align: center;
 }
 
+.links {
+  display: flexbox;
+  align-items: baseline;
+  padding: 50px;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;
