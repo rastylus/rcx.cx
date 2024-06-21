@@ -28,7 +28,6 @@ const randomNumberInRange = (min, max) => {
           <br />
           <Link to="/">home</Link>
         </div>
-        <p>RCX</p>
         <button onClick={hitClick}>roll</button>
         <p>{num}</p>
       </>
