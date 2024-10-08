@@ -157,6 +157,7 @@ import { Link } from 'react-router-dom';
 function Dice() {
   const [roll, setRoll] = useState(3); // Initial state set to 3
   const [phonemeArray, setPhonemeArray] = useState([]);
+  const [phoneme, setPhoneme] = useState([]);
 
   const phonemes = [
     // Consonants
@@ -204,17 +205,57 @@ function Dice() {
 
   const handleClick = () => {
     let newPhonemeArray = [];
+    let newPhonemes = [];
     for (let i = 0; i < roll; i++) { 
       const randomIndex = randomNumberInRange(0, phonemes.length - 1);
       newPhonemeArray.push(phoKey[randomIndex]);
+      newPhonemes.push(phonemes[randomIndex]);
     }
     setPhonemeArray(newPhonemeArray);
+    setPhoneme(newPhonemes);
   };
 
   const onChange = (event) => {
     setRoll(event.target.value);
   };
 
+  // return (
+  //   <>
+  //     <Link to="/dice">dice</Link>
+  //     <br />
+  //     <Link to="/pages">pages</Link>
+  //     <br />
+  //     <Link to="/">home</Link>
+  //     <br />
+  //     <p>roll for syllables, pick amount</p>
+  //     <div className="card">
+  //       <label htmlFor="rhymes">Number of syllables ({roll}): </label>
+  //       <input type="range" min="1" max="10" onInput={onChange} value={roll} />
+  //       <br />
+  //       <br />
+
+  //       <p>
+  //         <button onClick={handleClick}>Roll</button>
+  //       </p>
+  //       <br />
+  //       <br />
+  //       {phonemeArray.map((p, index) => (
+  //         <React.Fragment key={index}>
+  //           {p}
+  //           <br />
+  //           <br />
+  //         </React.Fragment>
+  //       ))}
+  //       {phoneme.map((p, index) => (
+  //         <React.Fragment key={index}>
+  //           {p}
+  //           <br />
+  //           <br />
+  //         </React.Fragment>
+  //       ))}
+  //     </div>
+  //   </>
+  // );
   return (
     <>
       <Link to="/dice">dice</Link>
@@ -235,16 +276,29 @@ function Dice() {
         </p>
         <br />
         <br />
-        {phonemeArray.map((p, index) => (
-          <React.Fragment key={index}>
-            {p}
-            <br />
-            <br />
-          </React.Fragment>
-        ))}
+        <table>
+          <thead>
+            <tr>
+              <th>Phoneme Key</th>
+              <br />
+              <th>Phoneme</th>
+            </tr>
+          </thead>
+          <tbody>
+            {phonemeArray.map((p, index) => (
+              <tr key={index}>
+                <td>{p}</td>
+                <br />
+                <td>{phoneme[index]}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </>
   );
 }
+
+// }
 
 export default Dice;
